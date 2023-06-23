@@ -1,0 +1,1 @@
+<a href="{{ \Illuminate\Support\Facades\URL::temporarySignedRoute('event.rsvp', now()->addMinute(), ['id' => 25, 'user' => 100, 'response' => 'yes']); }}">Test</a>
