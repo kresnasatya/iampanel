@@ -49,6 +49,6 @@ class Notification extends Model
 
     public function notification_user_actions()
     {
-        return $this->belongsTo('App\Models\NotificationUserAction', 'id', 'notification_id');
+        return $this->belongsTo(\App\Models\NotificationUserAction::class, 'id', 'notification_id');
     }
 }
