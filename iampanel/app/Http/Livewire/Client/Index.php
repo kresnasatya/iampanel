@@ -75,25 +75,25 @@ class Index extends Component
     {
         if ($clientId !== config('sso.client_id')) {
             if (in_array($clientId, explode(',', config('keycloak-default-clients.clients')))) {
-                $this->emit('deleteError', array(
+                $this->emit('deleteError', [
                     'clientId' => $clientId
-                ));
+                ]);
             } else {
                 $response = (new KisaraClient(config('sso')))->delete($id);
                 if ($response['code'] === 204) {
-                    $this->emit('deleteOk', array(
+                    $this->emit('deleteOk', [
                         'clientId' => $clientId
-                    ));
+                    ]);
                 } else {
-                    $this->emit('deleteError', array(
+                    $this->emit('deleteError', [
                         'clientId' => $clientId
-                    ));
+                    ]);
                 }
             }
         } else {
-            $this->emit('deleteError', array(
+            $this->emit('deleteError', [
                 'clientId' => $clientId
-            ));
+            ]);
         }
     }
 

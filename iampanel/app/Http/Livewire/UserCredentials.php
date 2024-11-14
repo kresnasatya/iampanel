@@ -44,11 +44,11 @@ class UserCredentials extends Component
     {
         $this->validate();
 
-        $data = array(
+        $data = [
             'type' => self::PASSWORD,
             'value' => $this->password,
             'temporary' => false,
-        );
+        ];
 
         $result = (new KisaraUser(config('sso')))->resetCredentials(auth('imissu-web')->user()->sub, $data);
 

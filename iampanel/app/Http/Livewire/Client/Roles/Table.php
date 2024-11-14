@@ -66,13 +66,13 @@ class Table extends Component
         $response = (new KisaraRole(config('sso')))->delete($role_id);
 
         if ($response['code'] === 204) {
-            $this->emit('deleteOk', array(
+            $this->emit('deleteOk', [
                 'role_name' => $role_name
-            ));
+            ]);
         } else {
-            $this->emit('deleteError', array(
+            $this->emit('deleteError', [
                 'role_name' => $role_name
-            ));
+            ]);
         }
     }
 

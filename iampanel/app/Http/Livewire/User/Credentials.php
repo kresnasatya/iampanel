@@ -39,11 +39,11 @@ class Credentials extends Component
     {
         $this->validate();
 
-        $data = array(
+        $data = [
             'type' => self::PASSWORD,
             'value' => $this->password,
             'temporary' => true,
-        );
+        ];
 
         $result = (new KisaraUser(config('sso')))->resetCredentials($this->user['id'], $data);
 

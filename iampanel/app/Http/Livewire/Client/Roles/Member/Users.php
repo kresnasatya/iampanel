@@ -81,13 +81,13 @@ class Users extends Component
         $response = (new KisaraUserClientRole(config('sso')))->deleteAssignedRoles($user_id, $this->clientId, $roles);
 
         if ($response['code'] === 204) {
-            $this->emit('deleteUserOk', array(
+            $this->emit('deleteUserOk', [
                 'user_name' => $user_name
-            ));
+            ]);
         } else {
-            $this->emit('deleteUserFailed', array(
+            $this->emit('deleteUserFailed', [
                 'user_name' => $user_name
-            ));
+            ]);
         }
     }
 

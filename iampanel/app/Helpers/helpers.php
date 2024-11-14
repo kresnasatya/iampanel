@@ -2,11 +2,11 @@
 
 function get_user_types()
 {
-    return array(
+    return [
         '1' => 'Mahasiswa',
         '2' => 'Dosen',
         '3' => 'Pegawai'
-    );
+    ];
 }
 
 function search_user_type($type)
@@ -63,7 +63,7 @@ if (! function_exists('q_to_array')) {
         $arr_q = explode(" ", $q);
         foreach ($arr_q as $key => $value) {
             $split_kv = explode(":", $value);
-            $result[] = array($split_kv[0] => $split_kv[1]);
+            $result[] = [$split_kv[0] => $split_kv[1]];
         }
 
         return $result;
@@ -76,7 +76,7 @@ if (! function_exists('set_user_attributes')) {
         $attributes = [];
         foreach ($user_attributes as $user_attribute) {
             $user_attribute = collect($user_attribute)->toArray();
-            $attributes[$user_attribute['name']] = array($user_attribute['value']);
+            $attributes[$user_attribute['name']] = [$user_attribute['value']];
         }
 
         return $attributes;
@@ -87,10 +87,10 @@ if (! function_exists('set_user_attributes')) {
 if (! function_exists('get_q_user_type_id')) {
     function get_q_user_type_id()
     {
-        return array(
+        return [
             'user_type_id:1' => 'Mahasiswa',
             'user_type_id:2' => 'Dosen',
             'user_type_id:3' => 'Pegawai'
-        );
+        ];
     }
 }

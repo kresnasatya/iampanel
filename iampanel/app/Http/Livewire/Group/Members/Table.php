@@ -81,13 +81,13 @@ class Table extends Component
         $result = (new KisaraUserGroup(config('sso')))->detach($member_id, $this->group_id);
 
         if ($result['code'] === 204) {
-            $this->emit('deleteMemberOk', array(
+            $this->emit('deleteMemberOk', [
                 'member_name' => $member_name
-            ));
+            ]);
         } else {
-            $this->emit('deleteMemberFailed', array(
+            $this->emit('deleteMemberFailed', [
                 'member_name' => $member_name
-            ));
+            ]);
         }
     }
 

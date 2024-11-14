@@ -59,12 +59,12 @@ final class SearchUsers
             $user_attributes_query = DB::connection('keycloak')->table('user_attribute as ua')
             ->selectRaw("ua.name, ua.value")
             ->where('ua.user_id', $user_raw['id'])
-            ->whereIn('ua.name', array('nik', 'picture'))
+            ->whereIn('ua.name', ['nik', 'picture'])
             ->get()
             ->toArray();
 
             unset($user_raw['firstname'], $user_raw['lastname']);
-            $user = array_merge($user_raw, array('attributes' => set_user_attributes($user_attributes_query)));
+            $user = array_merge($user_raw, ['attributes' => set_user_attributes($user_attributes_query)]);
             $users[] = $user;
         }
 

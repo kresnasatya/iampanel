@@ -21,10 +21,10 @@ class UserApplications extends Component
 
     public function mount($user)
     {
-        $selected_user = (new KisaraUser(config('sso')))->get(array(
+        $selected_user = (new KisaraUser(config('sso')))->get([
             'email' => $user['mail']['0'],
             'username' => $user['uid']['0']
-        ));
+        ]);
 
         $this->user_id = !empty($selected_user) ? $selected_user['0']['id'] : '0';
         $this->available_roles = [];

@@ -67,13 +67,13 @@ class Table extends Component
         $response = (new KisaraSession(config('sso')))->delete($user_session_id);
 
         if ($response['code'] === 204) {
-            $this->emit('endSessionOk', array(
+            $this->emit('endSessionOk', [
                 'user_session_username' => $user_session_username
-            ));
+            ]);
         } else {
-            $this->emit('endSessionError', array(
+            $this->emit('endSessionError', [
                 'user_session_username' => $user_session_username
-            ));
+            ]);
         }
     }
 

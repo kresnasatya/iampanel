@@ -64,13 +64,13 @@ class Groups extends Component
         
         $response = (new KisaraGroupClientRole(config('sso')))->deleteAssignedRoles($group_id, $this->clientId, $roles);
         if ($response['code'] === 204) {
-            $this->emit('deleteGroupOk', array(
+            $this->emit('deleteGroupOk', [
                 'group_name' => $group_name
-            ));
+            ]);
         } else {
-            $this->emit('deleteGroupFailed', array(
+            $this->emit('deleteGroupFailed', [
                 'group_name' => $group_name
-            ));
+            ]);
         }
     }
 

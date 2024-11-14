@@ -102,13 +102,13 @@ class Add extends Component
         $result = (new KisaraUserGroup(config('sso')))->attach($user_id, $this->group_id);
 
         if ($result['code'] === 204) {
-            $this->emit('addOk', array(
+            $this->emit('addOk', [
                 'user_name' => $user_name
-            ));
+            ]);
         } else {
-            $this->emit('addFailed', array(
+            $this->emit('addFailed', [
                 'user_name' => $user_name
-            ));
+            ]);
         }
     }
 

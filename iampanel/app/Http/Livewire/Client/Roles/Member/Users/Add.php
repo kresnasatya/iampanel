@@ -90,13 +90,13 @@ class Add extends Component
         
         $response = (new KisaraUserClientRole(config('sso')))->storeAssignedRoles($user_id, $this->client_id, $roles);
         if ($response['code'] === 204) {
-            $this->emit('addOk', array(
+            $this->emit('addOk', [
                 'user_name' => $user_name
-            ));
+            ]);
         } else {
-            $this->emit('addFailed', array(
+            $this->emit('addFailed', [
                 'user_name' => $user_name
-            ));
+            ]);
         }
     }
 
